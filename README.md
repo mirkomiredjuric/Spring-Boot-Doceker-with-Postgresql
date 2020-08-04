@@ -7,12 +7,15 @@ docker run --name postgres-spring -e POSTGRES_PASSWORD=password -d -p 5432:5432 
 docker ps
 ***
 ###Provera na kom portu postgres radi u dockeru
+
 docker port postgres-spring 
 ***
 ###Pristup postgresu unutar dockera
+
 docker exec -it containerID bin/bash
 ***
 ###Logovanje kao postgres user
+
 psql -U postgres
 ***
 ###Kreiranje baze
