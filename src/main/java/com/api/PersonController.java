@@ -1,5 +1,6 @@
 package com.api;
 
+import com.exception.ApiRequestException;
 import com.model.Person;
 import com.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,11 @@ public class PersonController {
     @GetMapping(path = "/{uuid}")
     public Person selectPersonByUuid(@PathVariable("uuid") UUID uuid){
         return personService.selectPersonByUuid(uuid).orElse(null);
+    }
+
+    @GetMapping(path = "/error")
+    public List<Person> getAllPersonsError(){
+        throw new ApiRequestException("Cannot get all persons");
     }
 
     //delete person by uuid
